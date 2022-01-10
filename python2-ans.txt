@@ -1,0 +1,179 @@
+#1.
+def is_members(x,a):
+    i=0
+    while i<len(a):
+        if x==a[i]:
+            return True
+            i+=1
+        else:
+            i=i+1
+    return False
+
+
+#2.
+
+def is_valid_pincode(pin):
+    pincode=str(pin)
+    if pincode.isdigit():
+      if len(pin)==6:
+        return "Valid"
+    else:
+        return "Not Valid"
+
+#3.
+
+def is_member(list1,list2):
+    for list in list1:
+        for lists in list2:
+            if list==lists:
+                return True
+    return False
+
+#4.
+def mapping(words_list):
+     a = []
+     for n in words_list:
+        a.append((len(n)))
+        b=map(mapping,a)
+     return a
+
+
+
+#5.
+
+def find_longest_word(words_list):
+    a = []
+    for i in words_list:
+         a.append((len(i), i))
+         a.sort()
+    return a[-1]
+result = find_longest_word(['Capgemini','Aricent','Sogeti','Company','Engineering'])
+
+#6.
+
+def palindrome_version(str):
+    a='''!()[]-;:'"\,<>./?@#%^&*_+~ '''
+    s=""
+    for i in str:
+        if i in a:
+            s=s+""
+        else:
+            s=s+i
+    return s.lower()==s[::-1].lower()
+
+
+#7.
+def char_freq(str):
+    freq={}
+    for i in str:
+        keys=freq.keys()
+        if i in keys:
+          freq[i]+=1
+        else:
+           freq[i]=1
+    return freq
+
+#8.
+
+def encode_decode(str):
+    key = {'a':'n', 'b':'o', 'c':'p', 'd':'q', 'e':'r', 'f':'s', 'g':'t', 'h':'u', 'i':'v', 'j':'w', 'k':'x', 'l':'y', 'm':'z', 'n':'a', 'o':'b', 'p':'c', 'q':'d', 'r':'e', 's':'f', 't':'g', 'u':'h', 'v':'i', 'w':'j', 'x':'k', 'y':'l', 'z':'m', 'A':'N', 'H':'U', 'T':'V', 'J': 'W', 'K':'X', 'L':'Y', 'M':'Z', 'N': 'A', 'O':'B', 'P':'C', 'Q':'D', 'R':'E', 'S':'F', 'T':'G', 'U':'H', 'V':'T', 'W':'J', 'X':'K', 'Y':'L', 'B':'0', 'C':'P', 'D': 'Q', 'E':'R', 'F':'S', 'G':'T','Z':'M'}
+    cipher=""
+    for i in str:
+        if i in key.keys():
+            cipher=cipher+key[i]
+        else:
+            cipher=cipher+i
+    return cipher
+    
+
+  
+#9.
+
+def freq(txt):
+    sum=""
+    words = txt.split()
+    for i in words:
+        if txt.count(i) == 1:
+            sum+=i
+            sum+=" "
+    return (sum)
+         
+text = "hi hi hello  "
+
+
+#10.
+
+
+def word_search(doc_list, keyword):
+    res = []
+    for i in range(len(doc_list)-1):
+        if keyword.lower() in doc_list[i].lower().strip('.,').split():
+                res.append(i)
+        return res
+            
+
+doc_list_1 = ["The Learn Python Challenge Casino.", "They bought a car", "Casinoville"]
+
+
+
+doc_list_2=['The Learn Python Challenge Casino', 'They bought a car, and a horse', 'Casinoville?']
+
+
+
+#11.
+
+def word_search(doc_list, keyword):
+    a= []
+    for i in range(len(doc_list)):
+        words = doc_list[i].lower().strip(".,?").split()
+        if keyword.lower() in words:
+            a.append(i)            
+    return a
+
+def multi_word_search(doc_list, keywords):
+    ans = {}
+    for i in keywords:
+        ans[i] = word_search(doc_list, i)
+    return ans
+
+if __name__=="__main__":
+    print("1.Write a function is_member() that takes a value (i.e. a number, string, etc) x and a list of values a, and returns True if x is a member of a, False otherwise.\n")
+    print(is_members(10,[21,12,1]))
+    print(" ")
+    print("2.Write a function (def is_valid_pin(pin_code)) which should return whether or not a string represents a valid Indian pin  code. Consider a valid pin code is any string consisting of exactly 6 digits.\n")
+    print(is_valid_pincode("455gjh"))
+    print(is_valid_pincode("123456"))
+    print(" ")
+    print("3.Define a function overlapping() that takes two lists and returns True if they have at least one member in common, False otherwise.\n")
+    print(is_member([1,2,3,4,5],[5,6,7,8,2,9]))
+    print(is_member([1,2,3,"a"],[6,7,8,9]))
+    print(" ")
+    print("4.Write a program that maps a list of words into a list of integers representing the lengths of the corresponding words.")
+    print(mapping(['Capgemini','Aricent','Sogeti','Company']))
+    print(" ")
+    print("5.Write a function find_longest_word() that takes a list of words and returns the length of the longest one\n")
+    print(result)
+    print("\nLongest word:",result[1])
+    print("Length of the longest word:",result[0])
+    print(" ")
+    print("6.Write a version of a palindrome recognizer that also accepts phrase palindromes\n")
+    print(palindrome_version("was it a rat i saw"))
+    print(" ")
+    print("7.Write a function char_freq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Python dictionary.\n")
+    print(char_freq("abbabcbdbabdbdbabababcbcbab"))
+    print(char_freq("hello"))
+    print(" ")
+    print("8.Your task in this exercise is to implement an encoder/decoder of ROT-13. Once you're done, you will be able to read the following secret message:Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!\n")
+    print(encode_decode("ROT-13"))
+    print(encode_decode("Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!"))
+    print(" ")
+    print("9.Write a python program that prints the frequency of all the unique words. You can have a list of words or you can take data from the user.\n")
+    print(freq(text))
+    print(" ")
+    print("10.Write a function which accepts a list of documents and a keyword (that is to be searched).And returns list of the index values from the original list for all documents containing the keyword.\n")
+    print(word_search(doc_list_1, 'casino'))
+    print(word_search(doc_list_2, 'casino'))
+    print(" ")
+    print("11.Extend the function written for Q 10 to support multiple keywords, instead of one. In this case the function returns a dictionary with keyword as the key and the list of indexes as the value.\n")
+    print(multi_word_search(["He is learning Scooter driving", "They bought a car and a scooter", "they are singing"],['scooter', 'they']))
+

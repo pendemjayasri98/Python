@@ -1,0 +1,194 @@
+#1.
+def maximum(arg1,arg2):
+    if arg1 > arg2:
+         return True
+    else :
+          return False
+
+
+#2.
+def num_perfect(num):
+    sum_n=0
+    for i in range(1,num):
+        if num%i==0:
+            sum_n+=i
+    if sum_n==num:
+        return  str(num) + " " "is a perfect number"
+    else:
+        return  str(num) +" " "is not a perfect number"
+
+
+
+#3.
+def isogram_check(word):
+    word_change = set()
+    for i in word.lower():
+        if i in word_change:
+            return False
+        word_change.add(i)
+    return True
+
+#4.
+def elementwise_greater_than(mylist,threshold):
+    a=[]
+    for i in mylist:
+        if i > threshold:
+            a.append(True)
+        else:
+            a.append(False)
+    return a
+
+#5.
+def findLen(str):
+    c=0
+    while str[c:]:
+       c +=1
+    return c
+
+def list_len(list):
+    return len(list)
+l=[1,2,3]
+
+
+#6.
+def anagram(value,words):
+    anagram=[]
+    for word in words:
+        if sorted(word)==sorted(value):
+            anagram.append(word)
+    return anagram
+
+
+
+#7.
+def vowel(char):
+     if char.lower() in "aeiou":
+         return True
+     if char.upper() in "AEIOU":
+         return True
+     else:
+        return False
+
+#8.
+def sum_numbers(numbers):
+     if len(numbers) == 0:
+         return 0
+     return numbers[0] + sum_numbers(numbers[1:])
+
+def multiply_numbers(numbers):
+    if len(numbers) > 1:
+        return multiply_numbers(numbers[:-1]) * numbers[-1]
+    else:
+        return numbers[0]
+
+#9.
+def reverse(string):
+    revstring=" "
+    i=len(string)
+    while i>0:
+        revstring+=string[i-1]
+        i=i-1
+    return revstring
+
+
+#10.
+def digitalroot(number):
+    if (number<10):
+        return number
+    number=number%10+digitalroot(number//10)
+    return digitalroot(number)
+
+#11.
+def is_palindrome(word):
+    a=0
+    b=len(word)-1
+    while b>=a:
+        if not word[a]==word[b]:
+            return False
+        a+=1
+        b-=1
+    return True
+
+
+#12.
+def spell_correct(line):
+    for i in line:
+        if i+" ":
+            string=line.replace(" "," ")
+    return " ".join(string.split())
+
+#13.
+def bottle():
+    
+    for i in range(99,0,-1):
+        if i==1:
+           us_song=s=f'{i} bottle of beer on the wall,{i} bottle of beer.\nTake one down, pass it around,{i-1} bottle of beer on the wall.\n'
+        elif i==2:
+           us_song=s=f'{i} bottles of beer on the wall,{i} bottles of beer.\nTake one down, pass it around,{i-1} bottle of beer on the wall.\n'
+        else:
+            us_song=f'{i} bottles of beer on the wall,{i} bottles of beer.\nTake one down, pass it around,{i-1} bottles of beer on the wall.\n'
+        print(us_song)
+
+#14.
+def permute(string):
+    if len(string) == 1:
+        return [string]
+    permutations = permute(string[1:])
+    c= string[0]
+    result = []
+    for p in permutations:
+        for i in range(len(p)+1):
+            result.append(p[:i] + c + p[i:])
+    return result
+
+
+
+if __name__=="__main__":
+         print("1.Define a function max() that takes two numbers as arguments and returns the largest of them. Use the ifthenelse construct available in Python.\n")
+         print(maximum(2,1))
+         print(" ")
+         print("2.Write a python function to test, if a given number (passed as argument) is a perfect number\n")
+         print(num_perfect(6))
+         print(num_perfect(3))
+         print(" ")
+         print("3.Write a python function to test, if a given word (passed as an argument) is an perfect isogram\n")
+         print(isogram_check("Capgemini"))
+         print(isogram_check("Aricent"))
+         print(" ")
+         print("4.Implement the function given below:def elementwise_greater_than(mylist, threshold):Return a list with the same length as mylist, where the value at index i is True if L[i] is greater than threshold, and False otherwise.\n")
+         print(elementwise_greater_than([1,2,3,4],2))
+         print(" ")
+         print("5.Define a function that computes the length of a given list or string. \n")
+         print("Length of string :",findLen("Capgemini"))
+         print("Length of list :",list_len(l))
+         print(" ")
+         print("6. Write a function which accepts a word and a list of words. Return the anagrams of that word from the given list \n")
+         print(anagram("ant",["tan", "stand", "at"]))
+         print(" ")
+         print(" ")
+         print("7.Write a function that takes a character (i.e. a string of length 1) and returns True if it is a vowel, False otherwise\n")
+         print(vowel("g"))
+         print(vowel("A"))
+         print(" ")
+         print("8.Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in a list of numbers.\n") 
+         print(multiply_numbers([1,2,3,4]))
+         print(sum_numbers([1,2,3,4,5]))
+         print(" ")
+         print("9.Define a function reverse() that computes the reversal of a string. For example, reverse(I am testing) should return the string gnitset ma I.\n")
+         print(reverse("I am testing"))
+         print(" ")
+         print("10.Write a python function to find the digital root of a number.\n")
+         print(digitalroot(506213214241)) 
+         print(" ")
+         print("11.Define a function is_palindrome() that recognizes palindromes (i.e. words that look the same written backwards).\n")
+         print(is_palindrome("radar"))
+         print(" ")
+         print("12.Define a simple spelling correction function correct() that takes a string and sees to it that 1) two or more occurrences of the space character is compressed into one, and 2) inserts an extra space after a period if the period is directly followed by a letter.\n ")
+         print(spell_correct(" This   is  very funny  and    cool.Indeed! "))  
+         print(" ")
+         print("13.99 Bottles of Beer is a traditional song in the United States and Canada.99 bottles of beer on the wall, 99 bottles of beer.Take one down, pass it around, 98 bottles of beer on the wall. write a Python program capable of generating all the verses of the song.\n")
+         print(bottle())
+         print(" ")
+         print("14.Write a function which accepts a string and returns a list of all possible permutations of the given string in python.\n")
+         print(permute('cap'))
+         print(permute('c'))
