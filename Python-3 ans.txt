@@ -1,0 +1,78 @@
+#Q.1)1.
+
+def find_occurence(string,word):
+    for i in range(len(string)-len(word)+1):
+        if string[i:i+len(word)]==word:
+            return (i,word)
+
+
+#Q.1)2.
+
+def replace_occurence(old_str, old_char, new_char, n):
+    new_str = ""
+    c = 0
+    for i in old_str:
+        if i == old_char:
+            c+= 1
+            if c == n:
+                new_str += new_char 
+            else:
+                new_str += i
+        else:
+            new_str += i
+    return new_str
+#Q.1)3.
+
+def removeDuplicate(string):
+    return(' '.join(dict.fromkeys(string.split())))
+
+#Q.1)4.
+
+def countWords(string):
+    numwords = 0
+    for line in string:
+            wordlist = line.split()
+            numwords += len(wordlist)
+
+    return (numwords)
+
+
+
+#Q)2)
+def reverse(item):
+    result=[]
+    for i in item:
+        result.insert(0,i)
+    return result
+m=[1,2,3]
+
+    
+
+#Q)3)
+def fibonacciGenerator():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a+b
+
+    
+if __name__ == "__main__":
+    print("3 Q.1 : Write a program to find occurance of a search pattern inside a given text.")
+    print(find_occurence("the dude ic cool dude!","dude"))
+    print(removeDuplicate("dude dude is is cool"))
+    print(countWords("the cool"))   
+
+    print("         ")
+
+    print("3 Q.2 Write an iterator class my_reverse_list, that takes a list and iterate it from reverse direction.")
+    print(reverse(m))
+
+    print("         ")
+
+    print("3 Q.3 Using Generator function print the Fibonacci series.")
+    f = fibonacciGenerator()
+    for x in range(10):
+        print(next(f))
+  
+
+   
